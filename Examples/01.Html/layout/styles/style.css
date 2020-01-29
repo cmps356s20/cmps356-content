@@ -14,12 +14,6 @@ nav ul li {
     padding: 5px;
 }
 
-nav ul:after {
-    clear: both;
-    display: block;
-    content: "";
-}
-
 /** sidebar */
 aside {
     float: right;

@@ -62,7 +62,7 @@
 
 <h1>Profile information</h1>
 
-<form method="post" action="">
+<form method="get" action="">
     <!-- Text inputs -->
     <fieldset>
         <legend>Contact Information</legend>
@@ -107,12 +107,13 @@
         <label for="degree">Degree</label>
         <select name="degree" id="degree" multiple>
             <option value="BA">Bachelor of Art</option>
-            <option value="BS">Bachelor of Science</option>
-            <option value="MC" selected="selected">Master of Computing</option>
+            <option value="BS" selected>Bachelor of Science</option>
+            <option value="MC" selected>Master of Computing</option>
         </select>
         <br>
         <label for="university">University</label>
-        <select name="university" id="university">
+        <select name="university" id="university" required>
+            <option value=""></option>
             <option value="QU">Qatar University</option>
             <option value="CMU">CMU</option>
         </select>
@@ -125,27 +126,28 @@
 
         <!-- Multi Selections-->
         <label for="occupation">Occupation:</label>
-        <select id="occupation" name="occupation" size="10" multiple>
+        <select id="occupation" name="occupation" size="3" multiple>
             <optgroup label="Technical">
-                <option label="Developer" value="dev"></option>
-                <option label="Web Designer" value="design"></option>
+                <option value="dev">Developer</option>
+                <option value="C++">C++ Developer</option>
+                <option value="design">Web Designer</option>
             </optgroup>
             <optgroup label="Non-technical">
-                <option label="Consultant" value="consult" selected></option>
-                <option label="Manager" value="mgr"></option>
+                <option value="consult" selected>Consultant</option>
+                <option value="mgr">Manager</option>
             </optgroup>
 
-            <option label="Other" value="other"></option>
+            <option value="other">Other</option>
         </select>
 
         <br>
         <label>Gender:</label>
-        <label style="text-align: left">
-            <input type="radio" id="male" name="gender" value="male">
+
+            <input type="radio" name="gender" value="male">
             Male
-        </label>
+
         <label style="text-align: left">
-            <input type="radio" id="female" name="gender" value="female" checked>
+            <input type="radio" name="gender" value="female" checked>
             Female
         </label>
         <br>
