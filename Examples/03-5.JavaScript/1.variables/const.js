@@ -11,5 +11,3 @@ console.log(COLOR.name);
 // Constant cannot be reassigned
 //PI = 3;
 //console.log(PI);
-
-
