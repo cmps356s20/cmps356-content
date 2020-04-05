@@ -6,15 +6,12 @@ const fs = require('fs-extra');
 */
 function getStudent(studentId) {
     return fs.readJson('data/student.json').then(students => {
-        //const students = JSON.parse(data);
         return students.find(s => s.studentId === studentId);
     });
 }
 
 function getProgamName(programCode) {
     return fs.readJson('data/ceng-programs.json').then( programs => {
-        //const programs = JSON.parse(data);
-        //console.log(programs);
         return programs.find(p => p.code === programCode).name;
     });
 }

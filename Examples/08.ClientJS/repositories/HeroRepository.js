@@ -7,17 +7,19 @@ class HeroRepository {
     }
 
     async getHeroes() {
-        return await fs.readJson(this.heroFilePath);
+        const data = await fs.readFile(this.heroFilePath);
+        return JSON.parse(data);
     }
 
     async getHero(heroId) {
         const heroes = await this.getHeroes();
         const hero = heroes.find(h => h.id == heroId);
-        if (hero != "undefined") {
+        //console.log("getHero(heroId)", hero)
+        if (hero) {
             return hero;
         }
         else {
-            throw new Error("No record found");
+            throw "Not found";
         }
     }
 
@@ -46,7 +48,7 @@ class HeroRepository {
         if (foundIndex >= 0) {
             heroes[foundIndex] = hero;
             //console.log("heroRepository.updateHero", hero)
-            fs.writeFile(this.heroFilePath, JSON.stringify(heroes));
+            await fs.writeFile(this.heroFilePath, JSON.stringify(heroes));
         }
     }
 
@@ -59,7 +61,7 @@ class HeroRepository {
         if (foundIndex >= 0) {
             heroes.splice(foundIndex, 1);
             //console.log("heroController.deleteHero", heroId)
-            fs.writeFile(this.heroFilePath, JSON.stringify(heroes));
+            await fs.writeFile(this.heroFilePath, JSON.stringify(heroes));
         }
     }
 }
