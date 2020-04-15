@@ -3,6 +3,9 @@ const router = express.Router();
 
 const heroService = require('./services/HeroService');
 
+router.route('/login')
+    .post( heroService.login );
+
 //Heroes Web API
 router.route('/heroes')
     .get( heroService.getHeroes )

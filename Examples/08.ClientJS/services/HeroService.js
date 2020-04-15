@@ -64,6 +64,18 @@ class HeroService {
             res.status(500).send(err);
         }
     }
+
+    async login(req, res) {
+        try {
+            const loginInfo = req.body;
+            console.log("loginInfo", loginInfo);
+            //await heroRepository.login(loginInfo);
+            res.status(200).json({status: 'ok', message: `Welcome ${loginInfo.email}`});
+        } catch (err) {
+            res.status(500).send(err);
+        }
+    }
+
 }
 
 module.exports = new HeroService();

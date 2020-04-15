@@ -7,8 +7,7 @@ class HeroRepository {
     }
 
     async getHeroes() {
-        const data = await fs.readFile(this.heroFilePath);
-        return JSON.parse(data);
+       return await fs.readJson(this.heroFilePath);
     }
 
     async getHero(heroId) {
@@ -48,7 +47,7 @@ class HeroRepository {
         if (foundIndex >= 0) {
             heroes[foundIndex] = hero;
             //console.log("heroRepository.updateHero", hero)
-            await fs.writeFile(this.heroFilePath, JSON.stringify(heroes));
+            await fs.writeJson(this.heroFilePath, heroes);
         }
     }
 
@@ -61,7 +60,7 @@ class HeroRepository {
         if (foundIndex >= 0) {
             heroes.splice(foundIndex, 1);
             //console.log("heroController.deleteHero", heroId)
-            await fs.writeFile(this.heroFilePath, JSON.stringify(heroes));
+            await fs.writeJson(this.heroFilePath, heroes);
         }
     }
 }

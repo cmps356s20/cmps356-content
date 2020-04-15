@@ -9,9 +9,18 @@ class StudentRepository {
     }
 
     async getStudents() {
-        const data = await fs.readFile(this.studentFilePath);
-        let students = JSON.parse(data);
-        return students;
+        return await fs.readJson(this.studentFilePath);
+    }
+
+    async authenticate(username, password) {
+        const users = await this.getUsers();
+        const user = users.find(s => s.username === username && s.password === password);
+        if (user != "undefined") {
+            return user;
+        }
+        else {
+            throw new Error("Authentication failed");
+        }
     }
 
     async getStudent(studentId) {

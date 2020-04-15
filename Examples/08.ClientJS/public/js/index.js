@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 async function getHeroes() {
     const url = '/api/heroes';
     const response = await fetch(url);
-    return await response.json()
+    return await response.json();
 }
 
 async function getHero(heroId) {
@@ -84,6 +84,7 @@ async function handleInitPage() {
     try {
         log(''); // Clear any error message displayed on the screen
         const heroes = await getHeroes();
+        console.log(heroes);
         const heroesDiv = document.querySelector("#heroes");
         heroesDiv.innerHTML = heroes2Html(heroes);
     } catch (e) {
