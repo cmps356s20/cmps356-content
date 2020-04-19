@@ -7,13 +7,13 @@ class BookService {
     }
 
     async getCategories(req, res) {
-        let categories = await bookRespository.getBookCategories()
+        const categories = await bookRespository.getBookCategories();
         console.log("getCategories", categories);
         res.json(categories);
     }
 
     async addBook(req, res) {
-        let book = await bookRespository.addBook(req.body);
+        const book = await bookRespository.addBook(req.body);
         res.status(201).send(book);
     }
 
@@ -26,12 +26,12 @@ class BookService {
      }
     */
     async addReview(req, res) {
-        let book = await bookRespository.addReview(req.params.bookId, req.body);
+        const book = await bookRespository.addReview(req.params.bookId, req.body);
         res.status(200).json(book);
     }
 
     async updateReview(req, res) {
-        let book = await bookRespository.updateReview(req.params.bookId, req.params.reviewId, req.body);
+        const book = await bookRespository.updateReview(req.params.bookId, req.params.reviewId, req.body);
         res.status(200).json(book);
     }
 
@@ -67,13 +67,13 @@ class BookService {
 
 
     async getBooksSummary(req, res) {
-        let books = await bookRespository.getBooksSummary();
+        const books = await bookRespository.getBooksSummary();
         res.status(200).json(books);
     }
 
     async getBook(req, res) {
         try {
-            let book = await bookRespository.getBook(req.params.bookId);
+            const book = await bookRespository.getBook(req.params.bookId);
             console.log('getBook.book', book);
             if (book) {
                 res.status(200).json(book);

@@ -5,20 +5,20 @@ class BookRepository {
     constructor() {
     }
 
-    async addStore(newStore) {
-        return await Store.create(newStore);
+    addStore(newStore) {
+        return Store.create(newStore);
     }
 
-    async getStores() {
-        return await Store.find({});
+    getStores() {
+        return Store.find({});
     }
 
-    async getStoresCount(aCity) {
-        return await Store.count({ city : aCity});
+    getStoresCount(aCity) {
+        return Store.count({ city : aCity});
     }
 
-    async getBookCategories() {
-        return await Book.distinct('category');
+    getBookCategories() {
+        return Book.distinct('category');
     }
 
     getBooks({category, publisherCountry}) {
@@ -41,8 +41,8 @@ class BookRepository {
         return query;
     }
 
-    async getBooksCount() {
-        return await Book.countDocuments({});
+    getBooksCount() {
+        return Book.countDocuments({});
     }
 
     getBook(bookId) {
@@ -84,8 +84,11 @@ class BookRepository {
     }
 
     async addReview(bookId, review) {
-        const book = await getBook(bookId);
-        book.reviews.push(review);
+        const book = await this.getBook(bookId);
+        if (book.reviews)
+            book.reviews.push(review);
+        else
+            book.reviews = [review];
         return book.save();
     }
 

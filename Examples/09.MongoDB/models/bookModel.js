@@ -24,4 +24,5 @@ const bookSchema = new mongoose.Schema({
 //Custom Validtor
 bookSchema.path('isbn').validate( value => value.length >= 3 );
 
-module.exports = mongoose.model('Book', bookSchema);
+const Book = mongoose.model('Book', bookSchema);
+module.exports = Book;
