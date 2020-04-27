@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task Editor</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/task-editor.js"></script>
+</head>
+<body>
+<form>
+    <h2 class="span2Cols">Task Editor</h2>
+    <!-- ToDo: In case of edit you will need taskId and studentId hidden fields otherwise you need the students DD -->
+    <input type="hidden" id="taskId">
+    <input type="hidden" id="studentId">
+
+    <label for="studentDD">Student:</label>
+    <select id="studentDD"></select>
+
+    <label for="surahsDD">Surah:</label>
+    <select id="surahsDD" required></select>
+
+    <!--ToDo: set min and max value based on selected Surah -->
+    <label for="fromAya">From Aya:</label>
+    <input type="number" min="1" max="20" id="fromAya" required>
+
+    <!--ToDo: set min and max value based on selected Surah -->
+    <label for="toAya">To Aya:</label>
+    <input type="number" min="1" max="20" id="toAya" required>
+
+    <label>Due Date:</label>
+    <input type="date" id="dueDate" required>
+
+    <label>Task Type:</label>
+    <div style="margin-top: 10px">
+        <label>
+            <input type="radio" id="memorization" name="taskType" value="Memorization"> Memorization
+        </label>
+        <label>
+            <input type="radio" id="revision" name="taskType" value="Revision"> Revision
+        </label>
+    </div>
+
+    <button>Submit</button>
+</form>
+</body>
+</html>

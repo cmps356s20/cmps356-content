@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Tasks</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css" >
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/tasks-manage.js"></script>
+</head>
+<body>
+
+<form>
+    <h2 class="span2Cols">Manage Tasks</h2>
+    <label for="studentsDD">Student:</label>
+    <select id="studentsDD"></select>
+
+    <label for="taskStatusDD">Task Status:</label>
+    <select id="taskStatusDD">
+        <option value="All">All</option>
+        <option value="Pending" selected>Pending Tasks</option>
+        <option value="Completed">Completed Tasks</option>
+    </select>
+</form>
+<br>
+
+<table class="table table-condensed cust-table">
+    <thead>
+    <tr>
+        <th>Student ID</th>
+        <th>Task ID</th>
+        <th>Surah Name</th>
+        <th>From Aya</th>
+        <th>To Aya</th>
+        <th>Type</th>
+        <th>Due</th>
+        <th>Completed</th>
+        <th>Mastery Level</th>
+        <th>Comment</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>Al-Baqara</td>
+        <td>8</td>
+        <td>12</td>
+        <td>Memorization</td>
+        <td>1/04/2016</td>
+        <td>
+            2/04/2016
+        </td>
+        <td>
+            Excellent
+        </td>
+        <td>
+            Excellent work
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>7</td>
+        <td>Al-Baqara</td>
+        <td>13</td>
+        <td>17</td>
+        <td>Memorization</td>
+        <td>3/04/2016</td>
+        <td>
+            7/04/2016
+        </td>
+        <td>
+            Poor
+        </td>
+        <td>
+            Try hard next time
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>15</td>
+        <td>Al-Baqara</td>
+        <td>1</td>
+        <td>181</td>
+        <td>Revision</td>
+        <td>19/05/2016</td>
+        <td>
+            20/05/2016
+        </td>
+        <td>
+            Ok
+        </td>
+        <td>
+            Ok
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>16</td>
+        <td>Al-Baqara</td>
+        <td>120</td>
+        <td>121</td>
+        <td>Memorization</td>
+        <td>19/05/2016</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>
+            <a href="" onclick="updateTask(16)"  title="Update Task"> <i class="fas fa-edit"></i> </a>
+        </td>
+        <td>
+            <a href="" onclick="completeTask(16)" title="Complete Task"> <i class="fas fa-clipboard-check"></i>
+            </a>
+        </td>
+        <td>
+            <a href="" onclick="deleteTask(16)"  title="Delete Task"> <i class="fas fa-trash-alt"></i> </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

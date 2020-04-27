@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Complete Task</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/task-complete.js"></script>
+</head>
+<body>
+<form>
+    <h2 class="span2Cols">Complete Task</h2>
+
+    <input type="hidden" id="taskId">
+
+    <label for="studentId">Student:</label>
+    <input type="text" id="studentId" readonly>
+
+    <label for="surahName">Surah Name:</label>
+    <input type="text" id="surahName" readonly>
+
+    <label for="fromAya">From Aya:</label>
+    <input type="text" id="fromAya" readonly>
+
+    <label for="toAya">To Aya:</label>
+    <input type="text" id="toAya" readonly>
+
+    <label for="type">Task Type:</label>
+    <input type="text" id="type" readonly>
+
+    <label for="dueDate">Due Date:</label>
+    <input type="date" id="dueDate" readonly>
+
+    <label for="completedDate">Completed Date:</label>
+    <input type="date" id="completedDate">
+
+    <label for="masteryLevel">Mastery Level:</label>
+
+    <select id="masteryLevel">
+        <option value=""></option>
+        <option value="Excellent">Excellent</option>
+        <option value="Ok">Ok</option>
+        <option value="Poor">Poor</option>
+    </select>
+
+    <label for="comment">Comment:</label>
+    <textarea id="comment" rows="5"></textarea>
+
+    <button>Submit</button>
+</form>
+</body>
+</html>

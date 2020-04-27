@@ -1,0 +1,339 @@
+body {
+    background-color: white;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    margin-top:10px;
+    margin-right:20px;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+    background-color: cornsilk ;
+}
+
+/* Table style */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+tr:nth-child(even) {  /* even rows */
+    background-color: lightyellow;
+}
+
+thead{
+    background-color: lightcyan;
+}
+
+/* Form styling */
+form {
+    display: grid;
+    padding: 1em;
+    background: #f9f9f9;
+    border:1px solid #c9e6ff;
+    margin: 1em auto 0 auto;
+    max-width: 500px;
+    padding: 1em;
+}
+form input {
+    border:1px solid #c9e6ff;
+}
+
+form button {
+    border: none;
+    padding: 1em;
+    background: #0069ed;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+form button:hover,
+form button:focus {
+    background: #0053ba;
+}
+
+form button:focus {
+    outline: 1px solid #fff;
+    outline-offset: -4px;
+}
+
+form button:active {
+    transform: scale(0.99);
+}
+
+label {
+    padding: 0.5em 0.5em 0.5em 0;
+}
+
+input {
+    padding: 0.7em;
+    margin-bottom: 0.5rem;
+}
+input:focus {
+    outline: 2px solid royalblue;
+}
+
+@media (min-width: 700px) {
+    form {
+        grid-template-columns: auto 1fr;
+        grid-gap: 10px;
+    }
+
+    button {
+        grid-column: 2 / 3;
+        justify-self: center;
+    }
+
+    .span2Cols {
+        grid-column: 1/3;
+        text-align: center;
+    }
+}
+
+/* The main menu styling */
+.main-menu {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 10px;
+    list-style-type: none;
+}
+
+.main-menu li {
+    text-align: center;
+    margin: 10px auto;
+}
+
+.main-menu li i {
+    padding-right: 5px;
+}
+
+.main-menu a:hover {
+    text-decoration: overline;
+}
+
+.panel {
+    margin-top: 57px;
+    float:right;
+    border-color: beige !important;
+
+}
+.panel-heading{
+    background-color: cornsilk;
+    border-color: cornsilk !important;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+}
+.panel-body {
+    padding-top: 30px;
+    border-color: cornsilk !important;
+}
+
+#login {
+    width: 90px;
+    margin-left: 40%;
+}
+
+#incorrectMessage {
+    color: red;
+}
+
+footer{
+    text-align: right;
+
+}
+.footer {
+    height: auto;
+    padding-bottom: 15px;
+    position: relative;
+    width: 100%;
+}
+.footer h3 {
+    border-bottom: 0.7px solid lightslategrey;
+    color: black;
+    font-size: 15px;
+    padding: 25px 0 7px;
+    text-align: left;
+}
+.footer ul {
+    text-align: left;
+    color: lightslategrey;
+    font-size: 13px;
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 0;
+    margin-top: 9px;
+}
+.footer a {
+    color: darkblue;
+    float: left;
+}
+
+.imp-links i {
+    color: darkblue;
+    float: left;
+    letter-spacing:3px;
+}
+
+.social li {
+    background: none cornflowerblue;
+    border: 2px solid cornflowerblue;
+    border-radius: 50%;
+    float: left;
+    height: 33px;
+    line-height: 33px;
+    width: 33px;
+    margin: 0 9px 0 0;
+    padding-left: 7px;
+    text-align: center;
+}
+.social li:hover a i {
+    border: 0;
+    background: transparent;
+    color: darkslateblue !important;
+}
+.social li a i {
+    font-size: 16px;
+    margin: 0;
+    color: white !important;
+}
+
+.mypage-header, .mypage-header h1{
+    font-family: "Times New Roman";
+    text-align: center;
+    font-size: 25px;
+    letter-spacing:5px;
+    color: black;
+    background-color: cornsilk !important;
+    background-size: 100%;
+    padding-top: 5px;
+    padding-bottom: 3px;
+    max-width: 100%;
+    border-radius: 17%;
+}
+
+.navbar-default {
+    margin-top: 7px;
+    background: floralwhite !important;
+    color: black !important;
+    font-weight: 200 !important;
+}
+.navbar-default .navbar-brand {
+    color: black !important;
+}
+.navbar-default .navbar-nav > li > a {
+    color: black !important;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    background-color: cornsilk !important;
+    font-weight: bold;
+}
+
+div.staticheader {
+    margin-top: 0;
+    margin-buttom: 15px;
+    text-align: right;
+}
+div.staticheader2, div.staticheader2 h4 {
+    margin-buttom: 15px;
+    margin-top: 0;
+    text-align: left;
+    margin-bottom: 0;
+}
+
+.pagination {
+    margin: 0px !important;
+    color:black;
+}
+
+#save-btn {
+    float: right;
+}
+
+.pagination li.active a {
+    background: darkgray;
+    color: white;
+    border-color: transparent;
+}
+.pagination li.active a:hover {
+    background: antiquewhite;
+    color: forestgreen;
+    border-color: transparent;
+}
+
+aside {
+    border-color: cornsilk !important;
+    border-right: solid;
+    border-bottom:solid;
+    border-left:solid;
+
+}
+
+aside h4, #mainsection h4, #mainsection2 h4, #mainsection3 h4, #completeTaskDiv h4, #updatdesection h4 {
+    background-color: cornsilk !important;
+    padding-top: 7px;
+    padding-bottom: 9px;
+    padding-left: 9px;
+    font-size:15px;
+    font-family: "Times New Roman";
+    letter-spacing: 3px;
+}
+
+.announcement {
+    font-family: "Times New Roman";
+    font-size: 16px;
+}
+
+.event-mon{
+    font-family: "Times New Roman";
+    font-size: 20px;
+}
+.event {
+    padding-left: 9px ;
+    padding-bottom: 9px;
+}
+
+#announcement-panel, #email-panel, #addTask-panel, #regParent-panel, #regStudent-panel {
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-top: 5px;
+    margin: 0 0 0
+}
+
+#help-panel h4{
+    background-color: white !important;
+}
+
+.co-select{
+    padding: 0 0 0 0 !important;
+}
+
+#addtaskBtn {
+    width: 85%;
+}
+
+.error {
+    margin-left: 10px;
+    color: red;
+}
+
+.pattern {
+    display: none;
+    margin-left: 10px;
+    color: blue;
+}
+
+a.title {
+    background-color: lightgoldenrodyellow !important;
+}

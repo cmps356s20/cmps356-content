@@ -14,7 +14,7 @@ class BookRepository {
     }
 
     getStoresCount(aCity) {
-        return Store.count({ city : aCity});
+        return Store.countDocuments({ city : aCity});
     }
 
     getBookCategories() {
@@ -79,8 +79,6 @@ class BookRepository {
 
     deleteBook(bookId) {
         return Book.deleteOne({_id : bookId});
-        //return Book.findByIdAndRemove(bookId);
-        //return getBook(bookId).then(book => book.remove())
     }
 
     async addReview(bookId, review) {

@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "studentId": 3,
+    "subject": "Behaviour",
+    "message": "Please talk to your child regarding his behaviour ",
+    "date": "29/03/2020"
+  },
+  {
+    "id": 2,
+    "studentId": 5,
+    "subject": "Well done",
+    "message": "Your child has been completing all his tasks",
+    "date": "09/02/2020"
+  },
+  {
+    "studentId": 1,
+    "subject": "Simply outstanding",
+    "message": "Very generous award, a big Cheque! for good achievements. Good Boy Mashaa Allah! Congratulations!!! ",
+    "date": "5/19/2020, 10:41:29 AM",
+    "id": 5
+  },
+  {
+    "studentId": 1,
+    "subject": "Always playing with cats!!!",
+    "message": "Cats lover. I wish he gives similar care to his studies!!",
+    "date": "5/19/2020, 10:45:13 AM",
+    "id": 6
+  }
+]
