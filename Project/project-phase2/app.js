@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const halaqaRepository = require('./HalaqaRepository');
 
 /*  express.json() extracts the body portion of an incoming request and assigns
     it to req.body.
@@ -17,7 +18,17 @@ app.get('/', (req, res) => {
     res.sendFile('login.html', {root: `${__dirname}/public` });
 });
 
-const port = 8090;
-app.listen(port, function () {
-    console.log("HalaqaMetrash App is running on http://localhost:" + port);
-});
+const dbConnection = mongoose.connect('mongodb://localhost/halaqaDB',
+    { useNewUrlParser: true, useCreateIndex: true }, (err) => {
+        if (err) {
+            console.log("Failed to connect to monogoDb " + err);
+            return;
+        }
+        else {
+            halaqaRepository.initDb();
+            const port = 8090;
+            app.listen(port, () => {
+                console.log("HalaqaMetrash App is running on http://localhost:" + port);
+            });
+        }
+    });

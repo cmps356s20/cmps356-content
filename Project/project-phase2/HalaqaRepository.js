@@ -1,6 +1,17 @@
 const fs = require('fs-extra');
 
+// Test as you go ...
 class HalaqaRepository {
+    async getSurahs() {
+        return await fs.readJson('./data/surah.json');
+    }
+
+    async addSurah(surah) {
+        const surahs = await fs.readJson('./data/surah.json');
+        surahs.push(surah);
+        await fs.writeJson("./data/surah.json", surahs);
+    }
+
     async getStudents() {
         const parents = await fs.readJson('./data/parent.json');
         //Using spread operator to flatten multidimensional arrayOfArrays
@@ -24,16 +35,6 @@ class HalaqaRepository {
         const parent = parents.find(p => p.qatariId == parentId);
         if (parent)
             return parent.students;
-    }
-
-    async getSurahs() {
-        return await fs.readJson('./data/surah.json');
-    }
-
-    async addSurah(surah) {
-        const surahs = await fs.readJson('./data/surah.json');
-        surahs.push(surah);
-        await fs.writeJson("./data/surah.json", surahs);
     }
 
     async getTasks(studentId, taskStatus) {
@@ -66,6 +67,9 @@ class HalaqaRepository {
         newTask.taskId = Math.floor(Math.random() * 100);
         tasks.push(newTask);
         await fs.writeJson("./data/task.json", tasks);
+
+        Task.create(newTask);
+        //_id -> identifier of the task
     }
 
     async updateTask(updatedTask) {
@@ -187,6 +191,10 @@ class HalaqaRepository {
             };
             return userInfo;
         }
+    }
+
+    //ToDo: use this method to initialise the DB by adding data from json files to MongoDB
+    async initDB() {
     }
 }
 

@@ -264,3 +264,4 @@ Backup of *.doc*
 
 # Visio autosave temporary files
 *.~vsd*
+Project/project-phase2/package-lock.json

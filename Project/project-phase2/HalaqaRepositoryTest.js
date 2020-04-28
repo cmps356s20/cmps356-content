@@ -1,5 +1,13 @@
 const halaqaRepository = require('./HalaqaRepository');
 
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/halaqaDB')
+        .then(() => console.log("Connected to halaqaDB!!"))
+        .catch(err => console.log(err));
+
+halaqaRepository.initDB().then(() => console.log('DB initialized'));
+halaqaRepository.getSurahs().then(surahs => console.log(surahs));
+
 //halaqaRepository.getStudents().then(students => console.log(students));
 //halaqaRepository.getTeacherStudents(501).then(students => console.log(students));
 //halaqaRepository.getParentStudents(12).then(students => console.log(students));
@@ -15,4 +23,4 @@ const halaqaRepository = require('./HalaqaRepository');
 //halaqaRepository.getTeachers().then(teachers => console.log(teachers));
 //halaqaRepository.getTeacher(500).then(teacher => console.log(teacher));
 
-halaqaRepository.login({email: 'coordinator@halaqa.org', password: 'password'}).then(userInfo => console.log(userInfo));
+//halaqaRepository.login({email: 'coordinator@halaqa.org', password: 'password'}).then(userInfo => console.log(userInfo));
