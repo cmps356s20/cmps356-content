@@ -12,13 +12,17 @@ app.use('/api/', routes);
 
 const port = 9090; //process.env.PORT || 3000
 const dbConnection = mongoose.connect('mongodb://localhost/books',
-    { useNewUrlParser: true, useCreateIndex: true }, function(err) {
+    { useNewUrlParser: true, useCreateIndex: true }, async function(err) {
     if (err) {
         console.log("Failed to connect to monogoDb " + err);
         return;
     }
     else {
-        bookRespository.initDb();
+        await bookRespository.initDb();
+
+        console.log("getStoresBooksCount:");
+        const stores = await bookRespository.getStoresBooksCount();
+        console.log(stores);
 
         app.listen(port, () => {
             console.log(`Book Service running on http://localhost:${port}/api/books`);

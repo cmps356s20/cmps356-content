@@ -9,8 +9,9 @@ class BookRepository {
         return Store.create(newStore);
     }
 
-    getStores() {
-        return Store.find({});
+    async getStores() {
+        //Returns js objects (instead of Mongoose objects)
+        return await Store.find({}).select('-__v').lean().exec();
     }
 
     getStoresCount(aCity) {
@@ -120,6 +121,39 @@ class BookRepository {
         ]);
     }
 
+    async getBooksCountByStore(store) {
+        const bookCount = await Book.aggregate([
+            // Match only books with pages >= 200
+            { "$match": { "store": {$in : [store]} } },
+            { $group: {
+                    _id : null,
+                    count: { $sum: 1 }
+                }
+            },
+        ]);
+        //console.log(bookCount);
+        if (bookCount) {
+            //Return count property of the 1st element of the array
+            return bookCount[0].count;
+        }
+    }
+
+    async getStoresBooksCount() {
+        //Notice that getStores returns js objects (instead of Mongoose objects)
+        // using return await Store.find({}).lean().exec();
+        let stores = await this.getStores();
+        //console.log(stores);
+        //Map the array to add booksCount attribute to each store
+        stores = await Promise.all( stores.map(async store => {
+            const booksCount = await this.getBooksCountByStore(store._id);
+            //console.log("booksCount", booksCount);
+            //Add an extra attribute before returning the store
+            store.booksCount = booksCount;
+            return store;
+        }));
+        return stores;
+    }
+
     async emptyDB() { //in case needed during testing
         await Book.deleteMany({});
         await Store.deleteMany({});
@@ -128,7 +162,7 @@ class BookRepository {
     async initDb() {
         try {
             //Uncomment to empty the database
-            await this.emptyDB();
+            //await this.emptyDB();
             //If the db is empty then init the db with data in json files
             const booksCount = await this.getBooksCount();
             console.log(`Books Count: ${booksCount}. Comment out emptyDB() to stop re-initializing the database`);
